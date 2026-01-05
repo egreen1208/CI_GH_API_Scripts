@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-org_name="forest-service" # Replace with your organization's name
-team_slug="NRM"   # Replace with the team's slug (name in URL)
+org_name="ORG_NAME" # Replace with your organization's name
+team_slug="TEAM_NAME"   # Replace with the team's slug (name in URL)
 output_file="team_members.csv"
 
 # Function to fetch team members
