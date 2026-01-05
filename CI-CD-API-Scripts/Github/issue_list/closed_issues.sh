@@ -2,10 +2,10 @@
 # gh issue list --repo forest-service/NRM-Drupal-Website --state closed --limit 500 --json number | jq '[.[] | {number: .number}]' > NRM-Drupal-Website_closed_issues.json
 
 # Input JSON file
-json_file="NRM-Drupal-Website_closed_issues.json"
+json_file="json_name.json"
 
 # Create an empty CSV file
-> NRM-Drupal-Website_closed_issues.csv
+> csv_name.csv
 
 # Loop through the JSON array
 jq -c '.[]' "$json_file" | while read -r obj; do
