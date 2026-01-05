@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Set your GitHub Enterprise base URL
-BASE_URL="https://code.fs.usda.gov/api/v3"
+BASE_URL="https://DOMAIN_NAME/api/v3"
 
 # Set repository owner and name
-OWNER="forest-service"
-json_file="nrm_repos.json"
+OWNER="OWNER_NAME"
+json_file="JSON_NAME.json"
 
 # Array of labels to delete
 LABELS=("label%1" "label%2" "label%3" "label%4")
