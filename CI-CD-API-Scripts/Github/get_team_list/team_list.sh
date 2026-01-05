@@ -2,9 +2,9 @@
 
 # GitHub Enterprise API settings
 TOKEN="<your_token>"
-GHE_HOST="code.fs.usda.gov"
-ORG="forest-service"
-TEAM_ID="NRM"
+GHE_HOST="GH_URL"
+ORG="ORG_NAME"
+TEAM_ID="TEAM_NAME"
 
 # Get top-level team information
 TOP_LEVEL_TEAM=$(curl -s -H "Authorization: Bearer $TOKEN" "https://$GHE_HOST/api/v3/organizations/$ORG/team/$TEAM_ID")
