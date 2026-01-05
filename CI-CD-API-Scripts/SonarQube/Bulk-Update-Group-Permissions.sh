@@ -10,7 +10,7 @@ for project_key in $project_keys; do
     #remove portfolio key from start of project_key
     CLEAN_KEY=$(echo $project_key | sed 's/^Department___Application_Development//')
     echo $CLEAN_KEY
-    curl -X POST 'https://sca.fedgovcloud.us/api/permissions/add_group' --data-urlencode "projectKey=$CLEAN_KEY" --data-urlencode "groupName=$GROUP_NAME" --data-urlencode "permission=$PERMISSION" -H "Authorization: Bearer $TOKEN"
+    curl -X POST 'https://DOMAIN_NAME/api/permissions/add_group' --data-urlencode "projectKey=$CLEAN_KEY" --data-urlencode "groupName=$GROUP_NAME" --data-urlencode "permission=$PERMISSION" -H "Authorization: Bearer $TOKEN"
 
    echo "Added $GROUP_NAME to project $project_key with $PERMISSION permission"
 done
