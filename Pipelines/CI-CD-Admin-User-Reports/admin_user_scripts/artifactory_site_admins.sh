@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Artifactory base URL
-BASE_URL="https://artifactory.fdc.fs.usda.gov/artifactory"
+BASE_URL="https://DOMAIN_NAME/artifactory"
 # API token for authentication
 API_TOKEN="$ARTIFACTORY_TOKEN"
 
