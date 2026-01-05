@@ -2,7 +2,7 @@
 
 # Define variables
 access_token="$GITHUB_TOKEN"
-url="https://code.fs.usda.gov/stafftools/reports/dormant_users.csv"
+url="https://DOMAIN_NAME/stafftools/reports/dormant_users.csv"
 timestamp=$(date +"%Y-%m-%d_%H%M")
 dormant_users="dormant_users_$timestamp.csv"
 suspended_users="gh_disabled_users_$timestamp.csv"
