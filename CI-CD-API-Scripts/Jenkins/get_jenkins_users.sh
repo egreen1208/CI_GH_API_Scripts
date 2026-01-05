@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Replace these values with your Jenkins instance URL, username, and API token.
-jenkins_url="https://jenkins.fs.usda.gov"
+jenkins_url="https://DOMAIN_NAME"
 username="Your_Username"
 api_token="Your_Token"
 
