@@ -7,7 +7,7 @@ pipeline {
         GITHUB_TOKEN = credentials('CICD_SCRIPTS_GH') 
         ARTIFACTORY_TOKEN = credentials('CICD_SCRIPTS_ARTIFACTORY') 
         JENKINS_TOKEN = credentials('CICD_SCRIPTS_JENKINS') 
-        JENKINS_USERNAME = 'ERCELL.GREEN'
+        JENKINS_USERNAME = 'USERNAME'
         // BOX_EMAIL = credentials('admin_Users_Box_Location')
     }
 
