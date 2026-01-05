@@ -9,7 +9,7 @@ username="Your_Username"
 access_token="Your-Token"
 
 # Ensure the URL scheme is correct (http or https)
-url="https://code.fs.usda.gov/stafftools/reports/suspended_users.csv"
+url="https://DOMAIN_NAME/stafftools/reports/suspended_users.csv"
 
 # Initialize variables
 max_retries=10
