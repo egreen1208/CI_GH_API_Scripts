@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script will get all repos within the specified organization and export only repos that have not had a commit within one year of the current date.
-org_name="forest-service"
+org_name="ORG_NAME"
 one_year_ago=$(date -d "1 year ago" --iso-8601=seconds)
 
 # Function to check if a repository has recent commits
