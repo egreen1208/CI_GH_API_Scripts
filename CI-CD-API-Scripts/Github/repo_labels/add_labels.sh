@@ -4,10 +4,10 @@
 # If you have a .csv file with the names, you can convert the file using the csvtojson.py script that is in the directory.
 
 # Set your GitHub Enterprise base URL
-BASE_URL="https://code.fs.usda.gov/api/v3"
+BASE_URL="https://DOMAIN_NAME/api/v3"
 
 # Set repository owner and name
-OWNER="forest-service"
+OWNER="OWNER_NAME"
 json_file="<your_input.json>"
 label_name="new_label_name"
 
