@@ -4,7 +4,7 @@ read -p "Enter name of person that will be repo admin: " repo_admin
 read -p "Enter a brief description of repo use: " repo_description
 
 # Set the owner of the repository
-repo_owner="forest-service"
+repo_owner="OWNER_NAME"
 
 #  Create new repo from default-new-repo
 gh repo create $repo_owner/$new_repo_name --template $repo_owner/default-new-repo --include-all-branches --internal 
