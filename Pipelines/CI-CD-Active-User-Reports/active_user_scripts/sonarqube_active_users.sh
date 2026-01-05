@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sonarqube_url="https://sca.fedgovcloud.us"
+sonarqube_url="https://DOMAIN_NAME"
 api_token="$SQ_TOKEN"
 timestamp=$(date +"%Y-%m-%d_%H%M")
 FILENAME="SonarQube_users_$timestamp.csv"
