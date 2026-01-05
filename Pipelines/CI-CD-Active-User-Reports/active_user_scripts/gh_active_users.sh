@@ -1,7 +1,7 @@
 #!/bin/bash
 
 access_token="$GITHUB_TOKEN"
-url="https://code.fs.usda.gov/stafftools/reports/active_users.csv"
+url="https://DOMAIN_NAME/stafftools/reports/active_users.csv"
 
 max_retries=10
 retry_count=0
