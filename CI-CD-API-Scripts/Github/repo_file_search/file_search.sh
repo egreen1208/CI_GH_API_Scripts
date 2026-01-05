@@ -3,7 +3,7 @@
 #!/bin/bash
 
 # Repository to search
-REPO="forest-service/CI-Team-GitHub-API-Scripts"
+REPO="ORG_NMAE/REPO_NAME"
 
 # Output JSON file
 OUTPUT_FILE="repo_info.json"
