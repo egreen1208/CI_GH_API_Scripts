@@ -98,7 +98,7 @@ pipeline {
                     <p>Regards,<br/>CI/CD Team</p>
                 """,
                 mimeType: 'text/html',
-                to: "$BOX_EMAIL,ercell.green@usda.gov",
+                to: "EMAIL_ADDRESS",
                 attachmentsPattern: 'active_user_reports_*.zip'
             )
         }
@@ -111,7 +111,7 @@ pipeline {
                     <p>Regards,<br/>CI/CD Team</p>
                 """,
                 mimeType: 'text/html',
-                to: 'ercell.green@usda.gov'
+                to: 'EMAIL_ADDRESS'
             )
         }
         always {
