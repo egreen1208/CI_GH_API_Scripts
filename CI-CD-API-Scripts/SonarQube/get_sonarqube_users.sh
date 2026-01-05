@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Replace these values with your SonarQube instance URL, username, and API token.
-sonarqube_url="https://sca.fedgovcloud.us"
+sonarqube_url="https://DOMAIN_NAME"
 api_token="Your_token"
 
 # Generate a timestamp for the output file name
