@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'linux-worker2' }
+    agent { label 'WORKER_NODE' }
 
     environment {
         JIRA_TOKEN = credentials('jira-github_admin') 
