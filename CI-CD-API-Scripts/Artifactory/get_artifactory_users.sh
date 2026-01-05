@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the API endpoint and authorization token
-api_endpoint="https://artifactory.fdc.fs.usda.gov/artifactory/api/admin/management/users"
+api_endpoint="https://DOMAIN_NAME/artifactory/api/admin/management/users"
 authorization_token="Your_Token"
 
 # Generate a timestamp for the output file name
