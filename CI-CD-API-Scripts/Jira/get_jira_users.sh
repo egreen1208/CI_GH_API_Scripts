@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the API endpoint and authorization token
-api_endpoint="https://jira.fedgovcloud.us/rest/api/2/user/search?username=.&includeInactive=true&startAt=0&maxResults=500"
+api_endpoint="https://DOMAIN_NAME/rest/api/2/user/search?username=.&includeInactive=true&startAt=0&maxResults=500"
 authorization_token="Your_Token"
 
 # Generate a timestamp for the output file name
