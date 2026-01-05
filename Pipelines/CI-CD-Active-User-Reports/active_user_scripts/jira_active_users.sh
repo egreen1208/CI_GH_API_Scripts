@@ -1,6 +1,6 @@
 #!/bin/bash
 
-api_endpoint="https://jira.fedgovcloud.us/rest/api/2/user/search?username=.&includeInactive=true&startAt=0&maxResults=500"
+api_endpoint="https://DOMAIN_NAME/rest/api/2/user/search?username=.&includeInactive=true&startAt=0&maxResults=500"
 authorization_token="$JIRA_TOKEN"
 
 timestamp=$(date +"%Y-%m-%d_%H%M")
