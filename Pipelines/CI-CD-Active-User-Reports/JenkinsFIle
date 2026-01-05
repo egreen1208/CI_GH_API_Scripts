@@ -2,12 +2,12 @@ pipeline {
     agent { label 'linux-worker2' }
 
     environment {
-        JIRA_TOKEN = credentials('jira-github_admin') // this will need to be renewed in April 2025 github_admin email / token
-        SQ_TOKEN = credentials('CICD_SCRIPTS_SQ')
-        GITHUB_TOKEN = credentials('CICD_SCRIPTS_GH')
-        ARTIFACTORY_TOKEN = credentials('CICD_SCRIPTS_ARTIFACTORY')
-        JENKINS_TOKEN = credentials('CICD_SCRIPTS_JENKINS')
-        JENKINS_USERNAME = 'ERCELL.GREEN'
+        JIRA_TOKEN = credentials('jira-github_admin') 
+        SQ_TOKEN = credentials('PIPELINE_SECRET')
+        GITHUB_TOKEN = credentials('PIPELINE_SECRET')
+        ARTIFACTORY_TOKEN = credentials('PIPELINE_SECRET')
+        JENKINS_TOKEN = credentials('PIPELINE_SECRET')
+        JENKINS_USERNAME = 'PIPELINE_SECRET'
         BOX_EMAIL = credentials('Acitve_Users_Box_Location')
     }
 
