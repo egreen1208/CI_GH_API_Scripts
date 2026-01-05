@@ -13,7 +13,7 @@ open_issues_filename = "workspace_name_open_issues.csv"
 closed_issues_filename = "workspace_name_closed_issues.csv"
 
 # GraphQL endpoint URL
-graphql_url = "https://zenhub.fedgovcloud.us/public/graphql"
+graphql_url = "https://DOMAIN_NAME/public/graphql"
 
 query = """
 query getBoardInfoForWorkspace($workspaceId: ID!, $after: String) {
