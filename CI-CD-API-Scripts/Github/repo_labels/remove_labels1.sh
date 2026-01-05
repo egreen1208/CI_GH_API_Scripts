@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Set your GitHub Enterprise base URL
-BASE_URL="https://code.fs.usda.gov/api/v3"
+BASE_URL="https://DOMAIN_NAME/api/v3"
 
 # Set repository owner and name
-OWNER="forest-service"
-REPO="NRM-ADMIN"
+OWNER="OWNER_NAME"
+REPO="REPO_NAME"
 
 # Read repository names from nrm_repos.json using jq
 REPO_NAMES=$(jq -r '.users[].name' nrm_repos.json)
