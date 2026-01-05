@@ -1,6 +1,6 @@
 #!/bin/bash
 
-jenkins_url="https://jenkins.fs.usda.gov"
+jenkins_url="https://DOMAIN_NAME"
 username="$JENKINS_USERNAME"
 api_token="$JENKINS_TOKEN"
 
