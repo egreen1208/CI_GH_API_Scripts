@@ -1,0 +1,51 @@
+name: disable-User-Scripts
+
+on:
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  run-all-scripts:
+    runs-on: linux-worker4 # Uses your self-hosted runner
+
+    steps:
+    # Checkout the repository
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # Create a timestamped folder for the report
+    - name: Create Timestamped Report Folder
+      run: |
+        timestamp=$(date +"%Y-%m-%d_%H%M")
+        export REPORT_FOLDER="Reports/Disabled_Inactive_Users/disabled_users_report_$timestamp"
+        mkdir -p "$REPORT_FOLDER"
+        echo "REPORT_FOLDER=$REPORT_FOLDER" >> $GITHUB_ENV
+
+    # Run all .sh scripts in the active_user_scripts folder
+    - name: Run All Scripts
+      env:
+        GITHUB_TOKEN: ${{ secrets.GHE_TOKEN }}
+        JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+        SONARQUBE_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+        JENKINS_TOKEN: ${{ secrets.JENKINS_TOKEN }}
+        ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
+        REPORT_FOLDER: ${{ env.REPORT_FOLDER }}
+      run: |
+        chmod +x Pipelines/CI-CD-Disable-Inactive-Users/disable_inactive_users/*.sh
+        for script in Pipelines/CI-CD-Disable-Inactive-Users/disable_inactive_users/disable_artifactory_users.sh \
+                     Pipelines/CI-CD-Disable-Inactive-Users/disable_inactive_users/disable_gh_users.sh; do
+          echo "Running $script"
+          $script
+        done
+        mv gh_disabled_users_*.csv \
+           artifactory_disabled_users_*.csv "$REPORT_FOLDER/"
+
+    # Commit and push the output folder back to the repository
+    - name: Commit and Push Output
+      env:
+        GITHUB_TOKEN: ${{ secrets.GHE_TOKEN }}
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add Reports/Disable_Inactive_Users/ || echo "No changes to add."
+        git commit -m "Add Disable inactive  users report files to the repo" || echo "Nothing to commit."
+        git push || echo "Nothing to push."

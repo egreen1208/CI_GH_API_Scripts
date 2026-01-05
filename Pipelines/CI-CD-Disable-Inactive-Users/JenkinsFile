@@ -1,0 +1,112 @@
+pipeline {
+    agent any
+
+    environment {
+        JIRA_TOKEN = credentials('jira-github_admin') //this will need to be renewed in April 2025 github_admin email / token
+        SQ_TOKEN = credentials('CICD_SCRIPTS_SQ')
+        GITHUB_TOKEN = credentials('CICD_SCRIPTS_GH') 
+        ARTIFACTORY_TOKEN = credentials('CICD_SCRIPTS_ARTIFACTORY') 
+        JENKINS_TOKEN = credentials('CICD_SCRIPTS_JENKINS') 
+        JENKINS_USERNAME = 'ERCELL.GREEN'
+        // BOX_EMAIL = credentials('admin_Users_Box_Location')
+    }
+
+    stages {
+        stage("🧨 Remove Old Artifacts") {
+            steps {
+                sh '''
+                #!/bin/bash
+                . Pipelines/CI-CD-Admin-User-Reports/admin_user_scripts/remove_old_artifacts.sh
+                '''
+            }
+        }
+
+        stage("✅ Fetch JIRA Admin Users") {
+            steps {
+                sh ''' 
+                #!/bin/bash
+                . Pipelines/CI-CD-Admin-User-Reports/admin_user_scripts/jira_site_admins.sh
+                '''
+                // archiveArtifacts artifacts: 'jira_admin_users_*.csv', fingerprint: true
+            }
+        }
+
+        stage("✅ Fetch admin GITHUB Admin Users") {
+            steps {
+                sh ''' 
+                #!/bin/bash
+                . Pipelines/CI-CD-Admin-User-Reports/admin_user_scripts/gh_site_admins.sh
+                '''
+                // archiveArtifacts artifacts: 'gh_site_admin_users_*.csv', fingerprint: true
+            }
+        }
+
+        stage("✅ Fetch SonarQube Users") {
+            steps {
+                sh '''
+                . Pipelines/CI-CD-Admin-User-Reports/admin_user_scripts/sonarqube_site_admin_users.sh
+                '''
+                // archiveArtifacts artifacts: 'SonarQube_admin_users_*.csv', fingerprint: true
+            }
+        }
+
+        stage("✅ Fetch Artifactory Users") {
+            steps {
+                sh '''
+                . Pipelines/CI-CD-Admin-User-Reports/admin_user_scripts/artifactory_site_admins.sh                   
+                '''
+                // archiveArtifacts artifacts: 'artifactory_users_*.csv', fingerprint: true
+            }
+        }
+
+        // stage("✅ Fetch Jenkins Users") {
+        //     steps {
+        //         sh '''
+        //         . pipeline-configuration/get_user_scripts/get_jenkins_users.sh
+        //         '''
+        //         archiveArtifacts artifacts: 'Jenkins_Users_*.csv', fingerprint: true
+        //     }
+        // }
+
+        stage("📦 Package Artifacts") {
+            steps {'''
+                timestamp=$(date +"%Y-%m-%d_%H%M")
+                zip -r admin_user_reports_$timestamp.zip *.csv
+                archiveArtifacts artifacts:  'admin_user_reports.zip', fingerprint: true
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            emailext (
+                subject: "CI/CD Pipeline - Admin User Data Export",
+                body: """
+                    <p>Hello,</p>
+                    <p>The CI/CD pipeline has successfully completed and the admin user data export files are attached.</p>
+                    <p>Regards,<br/>CI/CD Team</p>
+                """,
+                mimeType: 'text/html',
+                // to: '$BOX_EMAIL,ercell.green@usda.gov',
+                to: 'Admin_U.ssc4sh3vo4kewdlp@u.box.com,ercell.green@usda.gov',
+                attachmentsPattern:  admin_user_reports.zip'
+            )
+        }
+        failure {
+            emailext (
+                subject: "CI/CD Pipeline - Admin User Data Export Failed",
+                body: """
+                    <p>Hello,</p>
+                    <p>The CI/CD pipeline has failed. Please check the Jenkins logs for more details.</p>
+                    <p>Regards,<br/>CI/CD Team</p>
+                """,
+                mimeType: 'text/html',
+                to: 'ercell.green@usda.gov'
+            )
+        }
+        cleanup {
+            cleanWs()
+        }
+    }
+}

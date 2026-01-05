@@ -1,0 +1,1 @@
+gh api repos/forest-service/FAM-IM-FEMS-Fire-Environment-Management-System/issues?per_page=2000 --paginate | jq -r '.[] | [.html_url, .number, .title, .state, .created_at, .closed_at, .body, .comments] | @csv' > issues.csv

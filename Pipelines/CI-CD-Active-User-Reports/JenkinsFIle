@@ -1,0 +1,125 @@
+pipeline {
+    agent { label 'linux-worker2' }
+
+    environment {
+        JIRA_TOKEN = credentials('jira-github_admin') // this will need to be renewed in April 2025 github_admin email / token
+        SQ_TOKEN = credentials('CICD_SCRIPTS_SQ')
+        GITHUB_TOKEN = credentials('CICD_SCRIPTS_GH')
+        ARTIFACTORY_TOKEN = credentials('CICD_SCRIPTS_ARTIFACTORY')
+        JENKINS_TOKEN = credentials('CICD_SCRIPTS_JENKINS')
+        JENKINS_USERNAME = 'ERCELL.GREEN'
+        BOX_EMAIL = credentials('Acitve_Users_Box_Location')
+    }
+
+    stages {
+        stage("🧨 Remove Old Artifacts") {
+            steps {
+                sh '''
+                #!/bin/bash
+                . Pipelines/CI-CD-Active-User-Reports/active_user_scripts/remove_old_artifacts.sh
+                '''
+            }
+        }
+
+        stage("✅ Fetch JIRA Users") {
+            steps {
+                sh '''
+                #!/bin/bash
+                . Pipelines/CI-CD-Active-User-Reports/active_user_scripts/jira_active_users.sh
+                '''
+            }
+        }
+
+        stage("✅ Fetch Active GITHUB Users") {
+            steps {
+                sh '''
+                #!/bin/bash
+                . Pipelines/CI-CD-Active-User-Reports/active_user_scripts/gh_active_users.sh
+                '''
+            }
+        }
+
+        stage("✅ Fetch Dormant GITHUB Users") {
+            steps {
+                sh '''
+                #!/bin/bash
+                . Pipelines/CI-CD-Active-User-Reports/active_user_scripts/gh_dormant_users.sh
+                '''
+            }
+        }
+
+        stage("✅ Fetch SonarQube Users") {
+            steps {
+                sh '''
+                #!/bin/bash
+                . Pipelines/CI-CD-Active-User-Reports/active_user_scripts/sonarqube_active_users.sh
+                '''
+            }
+        }
+        
+        stage("✅ Fetch Artifactory Users") {
+            steps {
+                sh '''
+                #!/bin/bash
+                . Pipelines/CI-CD-Active-User-Reports/active_user_scripts/artifactory_active_users.sh
+                '''
+            }
+        }
+        
+        stage("✅ Fetch Jenkins Users") {
+            steps {
+                sh '''
+                #!/bin/bash
+                . Pipelines/CI-CD-Active-User-Reports/active_user_scripts/jenkins_active_users.sh
+                '''
+                //archiveArtifacts artifacts: 'Jenkins_Users_*.csv', fingerprint: true
+            }
+        }
+
+        stage("📦 Package Artifacts") {
+            steps {
+                sh '''
+                #!/bin/bash
+                timestamp=$(date +"%Y-%m-%d_%H%M")
+                zip -r active_user_reports_$timestamp.zip jira_users_*.csv gh_active_users_*.csv gh_dormant_users_*.csv SonarQube_users_*.csv artifactory_users_*.csv Jenkins_Users_*.csv
+                '''
+                archiveArtifacts artifacts: 'active_user_reports_*.zip', fingerprint: true
+            }
+        }
+    }
+
+    post {
+        success {
+            emailext (
+                subject: "CI/CD Pipeline - Active User Data Export",
+                body: """
+                    <p>Hello,</p>
+                    <p>The CI/CD pipeline has successfully completed and the active user data export files are attached.</p>
+                    <p>Regards,<br/>CI/CD Team</p>
+                """,
+                mimeType: 'text/html',
+                to: "$BOX_EMAIL,ercell.green@usda.gov",
+                attachmentsPattern: 'active_user_reports_*.zip'
+            )
+        }
+        failure {
+            emailext (
+                subject: "CI/CD Pipeline - Active User Data Export Failed",
+                body: """
+                    <p>Hello,</p>
+                    <p>The CI/CD pipeline has failed. Please check the Jenkins logs for more details.</p>
+                    <p>Regards,<br/>CI/CD Team</p>
+                """,
+                mimeType: 'text/html',
+                to: 'ercell.green@usda.gov'
+            )
+        }
+        always {
+            script {
+                node {
+                    cleanWs()
+                }
+            }
+        }
+    }
+}

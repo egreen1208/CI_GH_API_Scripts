@@ -1,0 +1,44 @@
+name: Run Script 
+
+on:
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  run-script-store:
+    runs-on: linux-worker4 # Uses your self-hosted runner
+
+    steps:
+    # Checkout the repository
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    # Run the gh_actions_active_users.sh script
+    - name: Run gh_actions_active_users.sh Script
+      env:
+        GITHUB_TOKEN: ${{ secrets.GHE_TOKEN }}
+      run: |
+        chmod +x Pipelines/CI-CD-Active-User-Reports/active_user_scripts/gh_active_users.sh
+        Pipelines/CI-CD-Active-User-Reports/active_user_scripts/gh_active_users.sh
+        mv gh_active_users_*.csv reports/
+    
+    # Commit and push the output folder back to the repository
+    - name: Commit and Push Output
+      env:
+        GITHUB_TOKEN: ${{ secrets.GHE_TOKEN }}
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add reports/
+        git commit -m "Add generated report files to the repo"
+        git push
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+name: Admin-User-Scripts
+
+on:
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  run-all-scripts:
+    runs-on: linux-worker4 # Uses your self-hosted runner
+
+    steps:
+    # Checkout the repository
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # Create a timestamped folder for the report
+    - name: Create Timestamped Report Folder
+      run: |
+        timestamp=$(date +"%Y-%m-%d_%H%M")
+        export REPORT_FOLDER="Reports/Admin_Users/admin_users_report_$timestamp"
+        mkdir -p "$REPORT_FOLDER"
+        echo "REPORT_FOLDER=$REPORT_FOLDER" >> $GITHUB_ENV
+
+    # Run all .sh scripts in the admin_user_scripts folder
+    - name: Run All Scripts
+      env:
+        GITHUB_TOKEN: ${{ secrets.GHE_TOKEN }}
+        JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+        SONARQUBE_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+        JENKINS_TOKEN: ${{ secrets.JENKINS_TOKEN }}
+        ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
+        REPORT_FOLDER: ${{ env.REPORT_FOLDER }}
+      run: |
+        chmod +x Pipelines/CI-CD-Admin-User-Reports/admin_user_scripts/*.sh
+        for script in Pipelines/CI-CD-Admin-User-Reports/admin_user_scripts/jira_site_admins.sh \
+                     Pipelines/CI-CD-Admin-User-Reports/admin_user_scripts/gh_site_admins.sh \
+                     Pipelines/CI-CD-Admin-User-Reports/admin_user_scripts/sonarqube_site_admin_users.sh \
+                     Pipelines/CI-CD-Admin-User-Reports/admin_user_scripts/artifactory_site_admins.sh; do
+          echo "Running $script"
+          $script
+        done
+        mv jira_admin_users_*.csv \
+           gh_site_admin_users_*.csv \
+           SonarQube_admin_users_*.csv \
+           artifactory_admin_users_*.csv "$REPORT_FOLDER/"
+
+    # Commit and push the output folder back to the repository
+    - name: Commit and Push Output
+      env:
+        GITHUB_TOKEN: ${{ secrets.GHE_TOKEN }}
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add Reports/Admin_Users/ || echo "No changes to add."
+        git commit -m "Add admin users report files to the repo" || echo "Nothing to commit."
+        git push || echo "Nothing to push."

@@ -1,0 +1,608 @@
+[
+  {
+    "name": "NRM_GA_SMP"
+  },
+  {
+    "name": "NRM_SMP"
+  },
+  {
+    "name": "NRM_SMP_API"
+  },
+  {
+    "name": "NRM_SMP_DB"
+  },
+  {
+    "name": "NRM_SMP_QA"
+  },
+  {
+    "name": "NRM-574-Testing-Dataset"
+  },
+  {
+    "name": "NRM-AccExcAddIn"
+  },
+  {
+    "name": "NRM-AdhocQTool"
+  },
+  {
+    "name": "NRM-ADMIN"
+  },
+  {
+    "name": "NRM-Air"
+  },
+  {
+    "name": "NRM-Air-Arcgis-Client"
+  },
+  {
+    "name": "NRM-Air-Database"
+  },
+  {
+    "name": "NRM-Air-Excel-Addin"
+  },
+  {
+    "name": "NRM-Air-FME-Workbench"
+  },
+  {
+    "name": "NRM-AMF"
+  },
+  {
+    "name": "NRM-Application-Modernization"
+  },
+  {
+    "name": "NRM-Application-Rationalization"
+  },
+  {
+    "name": "NRM-AqS"
+  },
+  {
+    "name": "NRM-AqS-ExcelAddIn"
+  },
+  {
+    "name": "NRM-Archive"
+  },
+  {
+    "name": "NRM-ArcMLnkTlbr"
+  },
+  {
+    "name": "NRM-ArcProMainMenu"
+  },
+  {
+    "name": "NRM-ArcProPOC"
+  },
+  {
+    "name": "NRM-ArcProRefactor"
+  },
+  {
+    "name": "NRM-ASM"
+  },
+  {
+    "name": "NRM-ATM"
+  },
+  {
+    "name": "NRM-Attach"
+  },
+  {
+    "name": "NRM-Attach-FileUpload"
+  },
+  {
+    "name": "NRM-Attach-Upload"
+  },
+  {
+    "name": "NRM-Bldgs"
+  },
+  {
+    "name": "NRM-Brdgs"
+  },
+  {
+    "name": "NRM-Caves"
+  },
+  {
+    "name": "NRM-Caves-DB"
+  },
+  {
+    "name": "NRM-CLA"
+  },
+  {
+    "name": "NRM-CommSys"
+  },
+  {
+    "name": "NRM-Contacts"
+  },
+  {
+    "name": "NRM-Contacts-Cleanup"
+  },
+  {
+    "name": "NRM-Contacts-Legacy"
+  },
+  {
+    "name": "NRM-ContReplace"
+  },
+  {
+    "name": "NRM-Culvert-Installation"
+  },
+  {
+    "name": "NRM-Culvert-Installation-Legacy"
+  },
+  {
+    "name": "NRM-CulvertInstallations"
+  },
+  {
+    "name": "NRM-Culvert-Legacy"
+  },
+  {
+    "name": "NRM-DA"
+  },
+  {
+    "name": "NRM-Dams"
+  },
+  {
+    "name": "NRM-Dashboard"
+  },
+  {
+    "name": "NRM-DataLoader"
+  },
+  {
+    "name": "NRM-DB_INSP"
+  },
+  {
+    "name": "NRM-DB-Solutions"
+  },
+  {
+    "name": "NRM-DDL-CDW"
+  },
+  {
+    "name": "NRM-DDL-Export"
+  },
+  {
+    "name": "NRM-DDL-Legacy"
+  },
+  {
+    "name": "NRM-DDL-NextGen"
+  },
+  {
+    "name": "NRM-DDL-OID"
+  },
+  {
+    "name": "NRM-Documentation-Report"
+  },
+  {
+    "name": "NRM-DX"
+  },
+  {
+    "name": "NRM-EUSecurity"
+  },
+  {
+    "name": "NRM-EUSecurity-DevAcctMgmt"
+  },
+  {
+    "name": "NRM-EUSecurity-EnterpriseUserConvert"
+  },
+  {
+    "name": "NRM-EUSecurity-OID-Trail"
+  },
+  {
+    "name": "NRM-ExamsMobile"
+  },
+  {
+    "name": "NRM-Exchange-Tools"
+  },
+  {
+    "name": "NRM-FACTS-2016"
+  },
+  {
+    "name": "NRM-FACTS-2023"
+  },
+  {
+    "name": "NRM-FACTS-Legacy"
+  },
+  {
+    "name": "NRM-FACTS-SpatialEditor-2023"
+  },
+  {
+    "name": "NRM-FMMI_Interface"
+  },
+  {
+    "name": "NRM-FMMI_Interface-OpenForest"
+  },
+  {
+    "name": "NRM-FMMI_Interface-TIMWebservice"
+  },
+  {
+    "name": "NRM-FMMI_Interface-TSRM"
+  },
+  {
+    "name": "NRM-FSDMP"
+  },
+  {
+    "name": "NRM-FSOrgChange"
+  },
+  {
+    "name": "NRM-FSVeg"
+  },
+  {
+    "name": "NRM-FSVeg-Legacy"
+  },
+  {
+    "name": "NRM-FSVegSpatial"
+  },
+  {
+    "name": "NRM-Fsweb-PHP"
+  },
+  {
+    "name": "NRM-GA"
+  },
+  {
+    "name": "NRM-GA-CodesLib-Legacy"
+  },
+  {
+    "name": "NRM-GA-Common"
+  },
+  {
+    "name": "NRM-GA-FfataRejects-Legacy"
+  },
+  {
+    "name": "NRM-GA-Legacy"
+  },
+  {
+    "name": "NRM-GA-Raca-Legacy"
+  },
+  {
+    "name": "NRM-GA-WorkPlan-Legacy"
+  },
+  {
+    "name": "NRM-GeoLoc"
+  },
+  {
+    "name": "NRM-GeoLoc-Fea"
+  },
+  {
+    "name": "NRM-GeoLoc-LU"
+  },
+  {
+    "name": "NRM-Get-to-Post"
+  },
+  {
+    "name": "NRM-GI"
+  },
+  {
+    "name": "NRM-GI-Reg-Tool-Installer"
+  },
+  {
+    "name": "NRM-GIS"
+  },
+  {
+    "name": "NRM-GitHub-Deployment-Report"
+  },
+  {
+    "name": "NRM-GitHub-Deployment-Report-Nathan"
+  },
+  {
+    "name": "NRM-GitHub-Documentation-Report"
+  },
+  {
+    "name": "NRM-GitHub-Issue-Exporter"
+  },
+  {
+    "name": "NRM-GitHub-Migration"
+  },
+  {
+    "name": "NRM-GitHub-Support"
+  },
+  {
+    "name": "NRM-gPAS"
+  },
+  {
+    "name": "NRM-Heritage"
+  },
+  {
+    "name": "NRM-Heritage_DWBI"
+  },
+  {
+    "name": "NRM-Heritage-Database"
+  },
+  {
+    "name": "NRM-Heritage-DataMigration"
+  },
+  {
+    "name": "NRM-InterpSrvs"
+  },
+  {
+    "name": "NRM-InvMonRngMap"
+  },
+  {
+    "name": "NRM-InvMonRngMap-CodeStewardship"
+  },
+  {
+    "name": "NRM-JASON-TEST"
+  },
+  {
+    "name": "NRM-LocMinrls"
+  },
+  {
+    "name": "NRM-LocMinrls-MgCommodity"
+  },
+  {
+    "name": "NRM-LSRS"
+  },
+  {
+    "name": "NRM-LSRS-2023"
+  },
+  {
+    "name": "NRM-LSRS-Publication"
+  },
+  {
+    "name": "NRM-MainMenuD"
+  },
+  {
+    "name": "NRM-MinrlMater"
+  },
+  {
+    "name": "NRM-MobileBuilder"
+  },
+  {
+    "name": "NRM-Modernization-Reports-Conversion"
+  },
+  {
+    "name": "NRM-Modernization-Research"
+  },
+  {
+    "name": "NRM-NAMP"
+  },
+  {
+    "name": "NRM-NEFA"
+  },
+  {
+    "name": "NRM-NRMClient"
+  },
+  {
+    "name": "NRM-NRMClient-ArcPro-2023"
+  },
+  {
+    "name": "NRM-NRMMap"
+  },
+  {
+    "name": "NRM-NRMMap-JSAPI"
+  },
+  {
+    "name": "NRM-NVUM"
+  },
+  {
+    "name": "NRM-NVUM-FYUploads"
+  },
+  {
+    "name": "NRM-NVUM-Results"
+  },
+  {
+    "name": "NRM-OM-Contract-Report"
+  },
+  {
+    "name": "NRM-OPS"
+  },
+  {
+    "name": "NRM-OPS-Testing-Sandbox"
+  },
+  {
+    "name": "NRM-P-Account-Tracker"
+  },
+  {
+    "name": "NRM-PostgreSQL-RDBMS-Migration"
+  },
+  {
+    "name": "NRM-QA"
+  },
+  {
+    "name": "NRM-R9DAP"
+  },
+  {
+    "name": "NRM-RangeMgmt"
+  },
+  {
+    "name": "NRM-RangeMgmt-UICore"
+  },
+  {
+    "name": "NRM-RecSites"
+  },
+  {
+    "name": "NRM-Reference-Application-2023"
+  },
+  {
+    "name": "NRM-Reference-Application-2023-API"
+  },
+  {
+    "name": "NRM-Reference-Application-2023-Database"
+  },
+  {
+    "name": "NRM-Reference-Application-2023-Frontend"
+  },
+  {
+    "name": "NRM-Reference-Application-2023-Mulesoft"
+  },
+  {
+    "name": "NRM-Repository-Template"
+  },
+  {
+    "name": "NRM-Road"
+  },
+  {
+    "name": "NRM-Road-ERL"
+  },
+  {
+    "name": "NRM-Road-RATSE"
+  },
+  {
+    "name": "NRM-Road-RMO"
+  },
+  {
+    "name": "NRM-Road-RteAuth"
+  },
+  {
+    "name": "NRM-Road-RteAuthOrg"
+  },
+  {
+    "name": "NRM-RPM"
+  },
+  {
+    "name": "NRM-RPTS"
+  },
+  {
+    "name": "NRM-Sandbox-Test"
+  },
+  {
+    "name": "NRM-SDELoginTool"
+  },
+  {
+    "name": "NRM-Security"
+  },
+  {
+    "name": "NRM-ServiceBridge"
+  },
+  {
+    "name": "NRM-SharedObjects"
+  },
+  {
+    "name": "NRM-SharedObjects-Basic"
+  },
+  {
+    "name": "NRM-SharedObjects-DevStatus"
+  },
+  {
+    "name": "NRM-SharedObjects-Email"
+  },
+  {
+    "name": "NRM-SharedObjects-JasperReportServletV6"
+  },
+  {
+    "name": "NRM-SharedObjects-MobileJava"
+  },
+  {
+    "name": "NRM-SharedObjects-RptPara"
+  },
+  {
+    "name": "NRM-SharedObjects-RptPara-Legacy"
+  },
+  {
+    "name": "NRM-SharedObjects-WebServices"
+  },
+  {
+    "name": "NRM-SMP_Geospatial_Web_and_Mobile_and_Cloud"
+  },
+  {
+    "name": "NRM-STIGs"
+  },
+  {
+    "name": "NRM-SUDS"
+  },
+  {
+    "name": "NRM-SUDS-Data"
+  },
+  {
+    "name": "NRM-SUDS-ePermits-Legacy"
+  },
+  {
+    "name": "NRM-SUDS-Legacy"
+  },
+  {
+    "name": "NRM-SUDS-Permit-Templates"
+  },
+  {
+    "name": "NRM-SUDS-Proposal"
+  },
+  {
+    "name": "NRM-SUDS-UI-Core"
+  },
+  {
+    "name": "NRM-Taxa"
+  },
+  {
+    "name": "NRM-TESP_IS"
+  },
+  {
+    "name": "NRM-Testing"
+  },
+  {
+    "name": "NRM-Test-Repo"
+  },
+  {
+    "name": "NRM-Tiger-Team"
+  },
+  {
+    "name": "NRM-TIM"
+  },
+  {
+    "name": "NRM-TRAIL"
+  },
+  {
+    "name": "NRM-Trail-2022"
+  },
+  {
+    "name": "NRM-Trail-eTRACS"
+  },
+  {
+    "name": "NRM-Transformation"
+  },
+  {
+    "name": "NRM-TrBrdg"
+  },
+  {
+    "name": "NRM-UACS"
+  },
+  {
+    "name": "NRM-UICore"
+  },
+  {
+    "name": "NRM-UICore-DemoApp"
+  },
+  {
+    "name": "NRM-UICore-JavaBase"
+  },
+  {
+    "name": "NRM-UMA"
+  },
+  {
+    "name": "NRM-Utilities"
+  },
+  {
+    "name": "NRM-WasteWatSys"
+  },
+  {
+    "name": "NRM-WaterSamp"
+  },
+  {
+    "name": "NRM-WaterSys"
+  },
+  {
+    "name": "NRM-WCATT"
+  },
+  {
+    "name": "NRM-Wild"
+  },
+  {
+    "name": "NRM-Wild-Legacy"
+  },
+  {
+    "name": "NRM-Wildlife"
+  },
+  {
+    "name": "NRM-Wildlife-Legacy"
+  },
+  {
+    "name": "NRM-WIT"
+  },
+  {
+    "name": "NRM-WM-FSWEB"
+  },
+  {
+    "name": "NRM-Workbench"
+  },
+  {
+    "name": "NRM-WrkItems"
+  },
+  {
+    "name": "NRM-WRU"
+  },
+  {
+    "name": "NRM-WSR"
+  },
+  {
+    "name": "NRM-YearEnd"
+  }
+]
