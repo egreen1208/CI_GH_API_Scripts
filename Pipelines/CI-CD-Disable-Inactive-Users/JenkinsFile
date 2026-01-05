@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        JIRA_TOKEN = credentials('jira-github_admin') //this will need to be renewed in April 2025 github_admin email / token
+        JIRA_TOKEN = credentials('jira-github_admin') 
         SQ_TOKEN = credentials('CICD_SCRIPTS_SQ')
         GITHUB_TOKEN = credentials('CICD_SCRIPTS_GH') 
         ARTIFACTORY_TOKEN = credentials('CICD_SCRIPTS_ARTIFACTORY') 
@@ -88,8 +88,8 @@ pipeline {
                     <p>Regards,<br/>CI/CD Team</p>
                 """,
                 mimeType: 'text/html',
-                // to: '$BOX_EMAIL,ercell.green@usda.gov',
-                to: 'Admin_U.ssc4sh3vo4kewdlp@u.box.com,ercell.green@usda.gov',
+                // to: 'EMAIL_ADDRESS',
+                to: 'EMAIL_ADDRESS',
                 attachmentsPattern:  admin_user_reports.zip'
             )
         }
@@ -102,7 +102,7 @@ pipeline {
                     <p>Regards,<br/>CI/CD Team</p>
                 """,
                 mimeType: 'text/html',
-                to: 'ercell.green@usda.gov'
+                to: 'EMAIL_ADDRESS'
             )
         }
         cleanup {
