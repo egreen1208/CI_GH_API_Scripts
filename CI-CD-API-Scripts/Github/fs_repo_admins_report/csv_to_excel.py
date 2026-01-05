@@ -2,10 +2,10 @@ import openpyxl
 import os
 import csv  # Import the csv module
 # Define the input CSV file path (replace with your actual file)
-csv_file = os.path.join(os.getcwd(), "C:\\Users\\ercellgreen\\OneDrive - USDA\\scripts\\fs_repo_admins\\fs_repo_admins.csv")
+csv_file = os.path.join(os.getcwd(), "FILE_LOCATION")
 
 # Define the output Excel file path (replace with your desired filename)
-excel_file = "fs_repo_admins.xlsx"
+excel_file = "OUTPUT_FILE"
 
 # Open the workbook and worksheet
 wb = openpyxl.Workbook()
